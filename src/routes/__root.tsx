@@ -84,6 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Glow Grow Digital is a website for a marketing and social media agency." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "google-site-verification", content: "gjhTbIal2EpK0RgHOBeMqJe6minnZgETjVUFGJtyGzw" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "glowgrowindia" },
       { name: "twitter:description", content: "Glow Grow Digital is a website for a marketing and social media agency." },
