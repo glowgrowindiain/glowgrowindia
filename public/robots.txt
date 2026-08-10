@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://glowgrowindia.lovable.app/sitemap.xml
