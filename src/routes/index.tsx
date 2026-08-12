@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroLifestyle from "@/assets/hero-lifestyle.jpg";
 import caseAmber from "@/assets/case-amber.jpg";
 import caseNila from "@/assets/case-nila.jpg";
+import logoAsset from "@/assets/glow-grow-logo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,15 +19,21 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-brand-cream font-sans text-brand-dark">
-      <nav className="flex items-center justify-between px-8 py-6 border-b border-brand-dark/5">
-        <div className="text-2xl font-display font-bold tracking-tight italic">Glow Grow.</div>
+      <nav className="flex items-center justify-between px-8 py-5 border-b border-brand-dark/10">
+        <img
+          src={logoAsset.url}
+          alt="Glow Grow India logo"
+          width={180}
+          height={60}
+          className="h-10 w-auto object-contain"
+        />
         <div className="hidden md:flex gap-10 text-xs uppercase tracking-widest font-medium">
           <a href="#collective" className="hover:text-brand-gold transition-colors">Collective</a>
           <a href="#expertise" className="hover:text-brand-gold transition-colors">Expertise</a>
           <a href="#work" className="hover:text-brand-gold transition-colors">Case Studies</a>
           <a href="#connect" className="hover:text-brand-gold transition-colors">Connect</a>
         </div>
-        <a href="#connect" className="px-6 py-2 bg-brand-dark text-white text-[10px] uppercase tracking-[0.2em] hover:bg-brand-gold transition-all">
+        <a href="#connect" className="px-6 py-2 bg-brand-dark text-brand-cream text-[10px] uppercase tracking-[0.2em] hover:bg-brand-gold transition-all">
           Inquire
         </a>
       </nav>
@@ -49,7 +56,7 @@ function Index() {
                 alt="Soft morning light over a ceramic vessel"
                 width={800}
                 height={1000}
-                className="w-full aspect-[4/5] object-cover outline-1 -outline-offset-1 outline-black/5"
+                className="w-full aspect-[4/5] object-cover grayscale outline-1 -outline-offset-1 outline-black/10"
               />
             </div>
           </div>
@@ -65,7 +72,7 @@ function Index() {
               { n: "03", t: "Creator Sync", d: "Direct access to India's top creative tier. Seamless partnerships that drive genuine cultural conversation." },
             ].map((s) => (
               <div key={s.n} className="p-12 bg-brand-dark">
-                <span className="text-brand-gold font-display italic text-2xl">{s.n}</span>
+                <span className="text-brand-cream/50 font-display italic text-2xl">{s.n}</span>
                 <h3 className="mt-6 text-2xl font-light uppercase tracking-wide">{s.t}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-brand-cream/60 font-light">{s.d}</p>
               </div>
@@ -90,7 +97,7 @@ function Index() {
                   width={1200}
                   height={800}
                   loading="lazy"
-                  className="w-full aspect-[3/2] object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  className="w-full aspect-[3/2] object-cover grayscale transition-transform duration-700 group-hover:scale-[1.02]"
                 />
               </div>
               <div className="mt-6">
@@ -107,7 +114,7 @@ function Index() {
                   width={1200}
                   height={800}
                   loading="lazy"
-                  className="w-full aspect-[3/2] object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  className="w-full aspect-[3/2] object-cover grayscale transition-transform duration-700 group-hover:scale-[1.02]"
                 />
               </div>
               <div className="mt-6">
@@ -119,8 +126,16 @@ function Index() {
         </div>
       </section>
 
-      <footer id="connect" className="px-8 py-16 border-t border-brand-dark/5 text-center">
-        <div className="text-4xl font-display italic mb-8">Ready to Glow?</div>
+      <footer id="connect" className="px-8 py-16 border-t border-brand-dark/10 text-center">
+        <img
+          src={logoAsset.url}
+          alt="Glow Grow India logo"
+          width={180}
+          height={60}
+          loading="lazy"
+          className="mx-auto h-12 w-auto object-contain"
+        />
+        <div className="text-4xl font-display italic mt-6 mb-8">Ready to Glow?</div>
         <a href="mailto:hello@glowgrow.in" className="text-[10px] uppercase tracking-[0.3em] text-brand-dark/60 hover:text-brand-gold transition-colors">
           hello@glowgrow.in
         </a>
