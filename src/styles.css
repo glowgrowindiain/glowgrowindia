@@ -5,9 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-brand-dark: #121212;
-  --color-brand-gold: #c5a059;
-  --color-brand-cream: #f9f7f2;
+  --color-brand-dark: #000000;
+  --color-brand-gold: #6e6e6e;
+  --color-brand-cream: #ffffff;
   --font-display: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
 }
