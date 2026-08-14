@@ -3,6 +3,7 @@ import { CtaSection } from "@/components/site/cta-section";
 import { ProcessSection, WhySection } from "@/components/site/sections";
 import { Eyebrow, Section } from "@/components/site/ui-bits";
 import { Reveal } from "@/components/site/motion-primitives";
+import founderAsset from "@/assets/kartik-garg.jpg.asset.json";
 
 const title = "About Glow Grow India — Digital Marketing Agency in India";
 const description =
@@ -49,9 +50,14 @@ function AboutPage() {
 
       <Section>
         <Reveal className="flex flex-col gap-8 border border-white/10 bg-brand-surface/40 p-8 backdrop-blur-sm sm:flex-row sm:items-center sm:p-12">
-          <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full border border-brand-glow/40 font-display text-2xl font-bold text-brand-glow">
-            KG
-          </div>
+          <img
+            src={founderAsset.url}
+            alt="Kartik Garg, founder of Glow Grow India"
+            width={640}
+            height={800}
+            loading="lazy"
+            className="h-40 w-40 shrink-0 rounded-full border border-brand-glow/40 object-cover object-top sm:h-48 sm:w-48"
+          />
           <div>
             <h2 className="font-display text-3xl font-bold tracking-tight uppercase">Kartik Garg</h2>
             <p className="mt-2 text-xs tracking-[0.24em] text-muted-foreground uppercase">
