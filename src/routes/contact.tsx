@@ -47,7 +47,7 @@ function ContactPage() {
               <span className="block text-[10px] tracking-[0.24em] text-muted-foreground uppercase">
                 Instagram
               </span>
-              <span className="text-sm">@glowgrowindia</span>
+              <span className="text-sm">@glowgrow.india</span>
             </span>
           </a>
           <a
@@ -74,10 +74,6 @@ function ContactPage() {
               <span className="text-sm">{BRAND.phone}</span>
             </span>
           </a>
-          <p className="text-xs leading-relaxed text-muted-foreground">
-            Contact details shown are placeholders — share your real handles, email and number and
-            we'll swap them in.
-          </p>
         </Reveal>
       </div>
     </Section>

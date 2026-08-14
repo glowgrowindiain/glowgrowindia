@@ -15,8 +15,8 @@ export interface CaseStudy {
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    slug: "muj-freshers-community",
-    name: "MUJ Freshers Community",
+    slug: "student-community",
+    name: "Student Community",
     category: "Community Growth",
     desc: "Community growth, social media and student marketing for one of Jaipur's largest campus networks.",
     result: "20K+ students reached, 5K+ community members added",
@@ -33,8 +33,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     alt: "Luxury villa with pool reflection at dusk",
   },
   {
-    slug: "manipal-travels",
-    name: "Manipal Travels",
+    slug: "travel-marketing",
+    name: "Travel Marketing",
     category: "Social Media",
     desc: "Travel marketing and student community promotion across high-intent routes and seasons.",
     result: "3x growth in seasonal booking enquiries",
