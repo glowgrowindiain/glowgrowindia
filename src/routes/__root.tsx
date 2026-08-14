@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Navbar } from "@/components/site/navbar";
+import { Footer } from "@/components/site/footer";
+import { WhatsAppButton } from "@/components/site/whatsapp-button";
 
 function NotFoundComponent() {
   return (
@@ -77,19 +80,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "glowgrowindia" },
-      { name: "description", content: "Glow Grow Digital is a website for a marketing and social media agency." },
+      { title: "Glow Grow India — Digital Marketing Agency in India" },
+      { name: "description", content: "Glow Grow India is a growth-focused digital marketing and creative agency for social media, performance marketing, branding, SEO and events." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "glowgrowindia" },
-      { property: "og:description", content: "Glow Grow Digital is a website for a marketing and social media agency." },
+      { property: "og:site_name", content: "Glow Grow India" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "google-site-verification", content: "gjhTbIal2EpK0RgHOBeMqJe6minnZgETjVUFGJtyGzw" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "glowgrowindia" },
-      { name: "twitter:description", content: "Glow Grow Digital is a website for a marketing and social media agency." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0a525f5a-5eef-426e-bb15-1da2d878b73c/id-preview-0947a4fd--c2273ef2-341b-4682-9446-b294cf0ed607.lovable.app-1781599566100.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0a525f5a-5eef-426e-bb15-1da2d878b73c/id-preview-0947a4fd--c2273ef2-341b-4682-9446-b294cf0ed607.lovable.app-1781599566100.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -97,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap",
       },
       {
         rel: "stylesheet",
@@ -130,8 +127,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="flex min-h-screen flex-col bg-brand-ink font-sans text-foreground">
+        <Navbar />
+        <main className="flex-1">
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </main>
+        <Footer />
+        <WhatsAppButton />
+      </div>
     </QueryClientProvider>
   );
 }
