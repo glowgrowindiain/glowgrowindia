@@ -95,7 +95,7 @@ export function WorkSection({ compact = false }: { compact?: boolean }) {
   return (
     <Section id="work">
       <SectionHeading
-        eyebrow="Selected Work"
+        eyebrow="Case Studies"
         title="Selected work"
         sub="Ideas we've turned into attention, engagement and growth."
       />
