@@ -1,10 +1,10 @@
 export const BRAND = {
   name: "Glow Grow India",
   tagline: "We Make Brands Glow. We Make Businesses Grow.",
-  email: "hello@glowgrowindia.com",
-  phone: "+91 00000 00000",
-  whatsapp: "919999999999",
-  instagram: "https://instagram.com/glowgrowindia",
+  email: "glowgrowindia.in@gmail.com",
+  phone: "+91 99935 51132",
+  whatsapp: "919993551132",
+  instagram: "https://instagram.com/glowgrow.india",
   linkedin: "https://linkedin.com/company/glowgrowindia",
   city: "Jaipur, India",
 };
