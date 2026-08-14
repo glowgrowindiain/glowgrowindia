@@ -1,16 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroLifestyle from "@/assets/hero-lifestyle.jpg";
-import caseAmber from "@/assets/case-amber.jpg";
-import caseNila from "@/assets/case-nila.jpg";
-import logoAsset from "@/assets/glow-grow-logo.jpg.asset.json";
+import { ArrowRight } from "lucide-react";
+import heroAbstract from "@/assets/hero-abstract.jpg";
+import { ButtonLink, Eyebrow, Marquee, Section } from "@/components/site/ui-bits";
+import { Reveal } from "@/components/site/motion-primitives";
+import {
+  IndustriesSection,
+  ProcessSection,
+  ServicesSection,
+  StatsSection,
+  WhySection,
+  WorkSection,
+} from "@/components/site/sections";
+import { Testimonials } from "@/components/site/testimonials";
+import { CtaSection } from "@/components/site/cta-section";
+import { MARQUEE } from "@/lib/site-content";
+
+const title = "Digital Marketing Agency in India | Glow Grow India";
+const description =
+  "Glow Grow India is a growth-focused digital marketing agency for social media, performance marketing, branding, SEO and event marketing. We make brands glow and businesses grow.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Glow Grow India — Boutique Marketing & Social Media Collective" },
-      { name: "description", content: "A boutique social collective elevating Indian brands through high-fidelity storytelling and data-led strategy." },
-      { property: "og:title", content: "Glow Grow India — Boutique Marketing & Social Media Collective" },
-      { property: "og:description", content: "Elevating Indian brands through high-fidelity storytelling and data-led social strategy." },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: "https://glowgrowindia.lovable.app/" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://glowgrowindia.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Glow Grow India",
+          description,
+          url: "https://glowgrowindia.lovable.app/",
+          areaServed: "India",
+          address: { "@type": "PostalAddress", addressLocality: "Jaipur", addressCountry: "IN" },
+          founder: { "@type": "Person", name: "Kartik Garg" },
+          serviceType: [
+            "Digital Marketing",
+            "Social Media Marketing",
+            "Performance Marketing",
+            "Branding",
+            "SEO",
+            "Event Marketing",
+          ],
+        }),
+      },
     ],
   }),
   component: Index,
@@ -18,131 +59,70 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-brand-cream font-sans text-brand-dark">
-      <nav className="flex items-center justify-between px-8 py-5 border-b border-brand-dark/10">
-        <img
-          src={logoAsset.url}
-          alt="Glow Grow India logo"
-          width={180}
-          height={60}
-          className="h-10 w-auto object-contain"
-        />
-        <div className="hidden md:flex gap-10 text-xs uppercase tracking-widest font-medium">
-          <a href="#collective" className="hover:text-brand-gold transition-colors">Collective</a>
-          <a href="#expertise" className="hover:text-brand-gold transition-colors">Expertise</a>
-          <a href="#work" className="hover:text-brand-gold transition-colors">Case Studies</a>
-          <a href="#connect" className="hover:text-brand-gold transition-colors">Connect</a>
-        </div>
-        <a href="#connect" className="px-6 py-2 bg-brand-dark text-brand-cream text-[10px] uppercase tracking-[0.2em] hover:bg-brand-gold transition-all">
-          Inquire
-        </a>
-      </nav>
-
-      <header className="relative px-8 pt-20 pb-32" id="collective">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-12">
-            <div className="w-full md:w-2/3">
-              <h1 className="font-display text-7xl md:text-9xl leading-[0.9] tracking-tighter">
-                Illuminating <br />
-                <span className="italic text-brand-gold">Digital Reach.</span>
+    <>
+      <Section className="relative overflow-hidden pt-32 pb-16 lg:pt-44 lg:pb-24">
+        <div className="pointer-events-none absolute -top-24 -left-32 -z-10 h-96 w-96 rounded-full bg-brand-glow/10 blur-[130px] float-slow" />
+        <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <Reveal>
+              <Eyebrow>Digital Growth × Creative × Technology</Eyebrow>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h1 className="mt-7 font-display text-[2.75rem] leading-[0.9] font-bold tracking-tight uppercase sm:text-6xl lg:text-7xl xl:text-8xl">
+                We make brands glow.
+                <br />
+                <span className="text-brand-glow">We make businesses grow.</span>
               </h1>
-              <p className="mt-12 text-xl max-w-md leading-relaxed text-brand-dark/70 font-light italic">
-                A boutique social collective elevating Indian brands through high-fidelity storytelling and data-led strategy.
+            </Reveal>
+            <Reveal delay={0.16}>
+              <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Glow Grow India is a modern digital growth agency helping brands turn attention into
+                audience, audience into leads, and ideas into growth.
               </p>
-            </div>
-            <div className="w-full md:w-1/3">
+            </Reveal>
+            <Reveal delay={0.24}>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <ButtonLink to="/contact" magnetic>
+                  Start a Project <ArrowRight className="h-3.5 w-3.5" />
+                </ButtonLink>
+                <ButtonLink to="/work" variant="ghost">
+                  Explore Our Work
+                </ButtonLink>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.1} y={40}>
+            <div className="relative">
+              <div className="absolute inset-0 -z-10 rounded-full bg-brand-glow/15 blur-[100px]" />
               <img
-                src={heroLifestyle}
-                alt="Soft morning light over a ceramic vessel"
-                width={800}
-                height={1000}
-                className="w-full aspect-[4/5] object-cover grayscale outline-1 -outline-offset-1 outline-black/10"
+                src={heroAbstract}
+                alt="Abstract 3D growth spiral representing digital marketing, content and technology"
+                width={1280}
+                height={1280}
+                className="w-full border border-white/10 object-cover"
               />
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <section id="expertise" className="px-8 py-24 bg-brand-dark text-brand-cream">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-cream/10">
-            {[
-              { n: "01", t: "Social Identity", d: "Defining your visual pulse and voice across the modern social landscape. We curate aesthetics that stick." },
-              { n: "02", t: "Growth Loops", d: "Performance marketing built on organic foundations. We scale conversion without losing your brand soul." },
-              { n: "03", t: "Creator Sync", d: "Direct access to India's top creative tier. Seamless partnerships that drive genuine cultural conversation." },
-            ].map((s) => (
-              <div key={s.n} className="p-12 bg-brand-dark">
-                <span className="text-brand-cream/50 font-display italic text-2xl">{s.n}</span>
-                <h3 className="mt-6 text-2xl font-light uppercase tracking-wide">{s.t}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-brand-cream/60 font-light">{s.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="work" className="px-8 py-32 overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex justify-between items-end mb-16">
-            <h2 className="font-display text-5xl">Selected Works.</h2>
-            <a href="#connect" className="text-[10px] uppercase tracking-widest border-b border-brand-dark/20 pb-1">View Archive</a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div className="group cursor-pointer">
-              <div className="overflow-hidden">
-                <img
-                  src={caseAmber}
-                  alt="The Amber Collective campaign"
-                  width={1200}
-                  height={800}
-                  loading="lazy"
-                  className="w-full aspect-[3/2] object-cover grayscale transition-transform duration-700 group-hover:scale-[1.02]"
-                />
-              </div>
-              <div className="mt-6">
-                <span className="text-[10px] uppercase tracking-widest text-brand-gold font-semibold">E-Commerce</span>
-                <h4 className="text-2xl mt-2 font-display italic">The Amber Collective</h4>
+              <div className="absolute -bottom-5 -left-4 border border-white/15 bg-brand-ink/80 px-5 py-3 text-[10px] font-semibold tracking-[0.2em] uppercase backdrop-blur-md">
+                Attention is easy. <span className="text-brand-glow">Growth is not.</span>
               </div>
             </div>
-
-            <div className="group cursor-pointer md:translate-y-20">
-              <div className="overflow-hidden">
-                <img
-                  src={caseNila}
-                  alt="Nila Residency interior"
-                  width={1200}
-                  height={800}
-                  loading="lazy"
-                  className="w-full aspect-[3/2] object-cover grayscale transition-transform duration-700 group-hover:scale-[1.02]"
-                />
-              </div>
-              <div className="mt-6">
-                <span className="text-[10px] uppercase tracking-widest text-brand-gold font-semibold">Lifestyle</span>
-                <h4 className="text-2xl mt-2 font-display italic">Nila Residency</h4>
-              </div>
-            </div>
-          </div>
+          </Reveal>
         </div>
-      </section>
+      </Section>
 
-      <footer id="connect" className="px-8 py-16 border-t border-brand-dark/10 text-center">
-        <img
-          src={logoAsset.url}
-          alt="Glow Grow India logo"
-          width={180}
-          height={60}
-          loading="lazy"
-          className="mx-auto h-12 w-auto object-contain"
-        />
-        <div className="text-4xl font-display italic mt-6 mb-8">Ready to Glow?</div>
-        <a href="mailto:hello@glowgrow.in" className="text-[10px] uppercase tracking-[0.3em] text-brand-dark/60 hover:text-brand-gold transition-colors">
-          hello@glowgrow.in
-        </a>
-        <div className="mt-8 text-[10px] uppercase tracking-[0.3em] text-brand-dark/40">
-          &copy; 2026 Glow Grow India &bull; Mumbai &bull; Bengaluru
-        </div>
-      </footer>
-    </div>
+      <Marquee items={MARQUEE} />
+      <p className="px-5 py-10 text-center font-display text-xl font-medium tracking-tight uppercase sm:text-2xl">
+        Built for brands that want to be <span className="text-brand-glow">noticed.</span>
+      </p>
+
+      <StatsSection />
+      <ServicesSection compact />
+      <WhySection />
+      <WorkSection compact />
+      <IndustriesSection />
+      <ProcessSection />
+      <Testimonials />
+      <CtaSection />
+    </>
   );
 }
