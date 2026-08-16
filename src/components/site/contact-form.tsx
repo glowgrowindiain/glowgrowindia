@@ -1,22 +1,14 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { useServerFn } from "@tanstack/react-start";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { BUDGETS, SERVICE_OPTIONS } from "@/lib/site-content";
+import { leadSchema, type LeadFormValues } from "@/lib/api/leads.schema";
+import { submitLead } from "@/lib/api/leads.functions";
 import { SubmitButton } from "./ui-bits";
 
-const schema = z.object({
-  name: z.string().min(2, "Please enter your name"),
-  email: z.string().email("Enter a valid email"),
-  phone: z.string().min(8, "Enter a valid phone number"),
-  company: z.string().optional(),
-  service: z.string().min(1, "Pick what you need help with"),
-  budget: z.string().min(1, "Pick a budget range"),
-  message: z.string().min(10, "Tell us a little more (10+ characters)"),
-});
-
-type FormValues = z.infer<typeof schema>;
+type FormValues = LeadFormValues;
 
 const fieldCls =
   "w-full border border-white/12 bg-white/5 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-foreground/35 focus:border-brand-glow/70";
@@ -24,19 +16,25 @@ const labelCls = "mb-2 block text-[10px] font-semibold tracking-[0.24em] text-fo
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const send = useServerFn(submitLead);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(leadSchema),
     defaultValues: { service: "", budget: "" },
   });
 
   const onSubmit = async (values: FormValues) => {
-    await new Promise((r) => setTimeout(r, 800));
-    console.info("Enquiry submitted", values);
-    setSent(true);
+    setError(null);
+    try {
+      await send({ data: values });
+      setSent(true);
+    } catch {
+      setError("Something went wrong sending your enquiry. Please email or WhatsApp us instead.");
+    }
   };
 
   if (sent) {
@@ -136,6 +134,11 @@ export function ContactForm() {
       </div>
 
       <div className="mt-8">
+        {error && (
+          <p role="alert" className="mb-4 text-xs text-destructive">
+            {error}
+          </p>
+        )}
         <SubmitButton disabled={isSubmitting}>
           {isSubmitting ? (
             <>
