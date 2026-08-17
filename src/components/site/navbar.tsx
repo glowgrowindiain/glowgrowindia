@@ -4,6 +4,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { NAV } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 import { ButtonLink } from "./ui-bits";
+import logoAsset from "@/assets/glow-grow-logo-light.png.asset.json";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,10 +29,17 @@ export function Navbar() {
       <nav className="mx-auto flex w-full max-w-[1240px] items-center justify-between px-5 sm:px-8">
         <Link
           to="/"
-          className="font-display text-sm font-bold tracking-[0.22em] uppercase sm:text-base"
+          className="flex items-center"
           onClick={() => setOpen(false)}
+          aria-label="Glow Grow India home"
         >
-          Glow<span className="text-brand-glow">Grow</span> India
+          <img
+            src={logoAsset.url}
+            alt="Glow Grow India"
+            width={800}
+            height={415}
+            className={cn("w-auto transition-all duration-300", scrolled ? "h-8" : "h-10 sm:h-11")}
+          />
         </Link>
 
         <div className="hidden items-center gap-9 lg:flex">

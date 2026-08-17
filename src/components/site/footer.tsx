@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Mail } from "lucide-react";
 import { BRAND, NAV } from "@/lib/site-content";
+import logoAsset from "@/assets/glow-grow-logo-light.png.asset.json";
 
 const footerServices = [
   "Social Media",
@@ -16,9 +17,14 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-brand-ink px-5 pt-16 pb-10 sm:px-8">
       <div className="mx-auto grid w-full max-w-[1240px] gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="font-display text-xl font-bold tracking-[0.16em] uppercase">
-            Glow<span className="text-brand-glow">Grow</span> India
-          </p>
+          <img
+            src={logoAsset.url}
+            alt="Glow Grow India"
+            width={800}
+            height={415}
+            loading="lazy"
+            className="h-12 w-auto"
+          />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             A modern growth agency helping ambitious brands glow, grow and stand out.
           </p>
