@@ -21,6 +21,7 @@ export function ContactForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(leadSchema),
@@ -32,8 +33,12 @@ export function ContactForm() {
     try {
       await send({ data: values });
       setSent(true);
-    } catch {
-      setError("Something went wrong sending your enquiry. Please email or WhatsApp us instead.");
+      reset({ name: "", email: "", phone: "", company: "", service: "", budget: "", message: "" });
+    } catch (err) {
+      console.error("[contact-form] submission failed", err);
+      setError(
+        "We couldn't save your enquiry just now. Please try again, or reach us on email or WhatsApp.",
+      );
     }
   };
 
@@ -43,7 +48,7 @@ export function ContactForm() {
         <CheckCircle2 className="mx-auto h-8 w-8 text-brand-glow" />
         <h3 className="mt-5 font-display text-2xl font-bold tracking-tight uppercase">Enquiry received</h3>
         <p className="mx-auto mt-3 max-w-sm text-sm text-muted-foreground">
-          Thanks for reaching out. We'll get back to you within one working day.
+          Thank you! Your enquiry has been received. Our team will get back to you shortly.
         </p>
         <button
           type="button"
