@@ -22,5 +22,9 @@ export async function insertLead(input: LeadFormValues) {
     throw new Error(`Failed to save enquiry: ${error.message}`);
   }
 
+  // Mirror the lead into the Google Sheet (best-effort, never blocks the response).
+  const { appendLeadToSheet } = await import("./google-sheets.server");
+  await appendLeadToSheet(input);
+
   return { id: data.id };
 }
