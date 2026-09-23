@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import heroAbstract from "@/assets/hero-abstract.jpg";
+import heroAbstract from "@/assets/hero-abstract.webp";
 import { ButtonLink, Eyebrow, Marquee, Section } from "@/components/site/ui-bits";
 import { Reveal } from "@/components/site/motion-primitives";
 import {

@@ -1,7 +1,7 @@
-import workCommunity from "@/assets/work-community.jpg";
-import workVilla from "@/assets/work-villa.jpg";
-import workTravel from "@/assets/work-travel.jpg";
-import workEvents from "@/assets/work-events.jpg";
+import workCommunity from "@/assets/work-community.webp";
+import workVilla from "@/assets/work-villa.webp";
+import workTravel from "@/assets/work-travel.webp";
+import workEvents from "@/assets/work-events.webp";
 
 export interface CaseStudy {
   slug: string;
