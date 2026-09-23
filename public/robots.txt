@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://glowgrowindia.lovable.app/sitemap.xml
+Sitemap: https://glowgrowmarketing.lovable.app/sitemap.xml

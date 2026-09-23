@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://glowgrowindia.lovable.app";
+const BASE_URL = "https://glowgrowmarketing.lovable.app";
 
 interface SitemapEntry {
   path: string;
@@ -9,7 +9,7 @@ interface SitemapEntry {
   priority?: string;
 }
 
-export const Route = createFileRoute("/sitemap/xml")({
+export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
@@ -19,6 +19,8 @@ export const Route = createFileRoute("/sitemap/xml")({
           { path: "/work", changefreq: "monthly", priority: "0.9" },
           { path: "/about", changefreq: "monthly", priority: "0.7" },
           { path: "/contact", changefreq: "yearly", priority: "0.8" },
+          { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
+          { path: "/terms", changefreq: "yearly", priority: "0.3" },
         ];
 
         const urls = entries.map((e) =>
