@@ -11,3 +11,11 @@ export const leadSchema = z.object({
 });
 
 export type LeadFormValues = z.infer<typeof leadSchema>;
+
+export const leadSubmissionSchema = leadSchema.extend({
+  website: z.string().max(0, "Spam detected").optional(),
+  startedAt: z.number().int().positive(),
+  sourcePage: z.string().trim().max(200).default("/contact"),
+});
+
+export type LeadSubmissionValues = z.infer<typeof leadSubmissionSchema>;

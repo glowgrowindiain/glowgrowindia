@@ -47,7 +47,7 @@ export function loadAnalytics() {
   window.dataLayer = window.dataLayer || [];
   window.gtag = function gtag() {
     // eslint-disable-next-line prefer-rest-params
-    window.dataLayer!.push(arguments);
+    window.dataLayer?.push(arguments);
   };
   window.gtag("js", new Date());
   window.gtag("config", id, { anonymize_ip: true });

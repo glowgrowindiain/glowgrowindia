@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useServerFn } from "@tanstack/react-start";
@@ -6,6 +6,7 @@ import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { BUDGETS, SERVICE_OPTIONS } from "@/lib/site-content";
 import { leadSchema, type LeadFormValues } from "@/lib/api/leads.schema";
 import { submitLead } from "@/lib/api/leads.functions";
+import { trackEvent } from "@/lib/analytics";
 import { SubmitButton } from "./ui-bits";
 
 type FormValues = LeadFormValues;
@@ -17,6 +18,7 @@ const labelCls = "mb-2 block text-[10px] font-semibold tracking-[0.24em] text-fo
 export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const startedAt = useRef(Date.now());
   const send = useServerFn(submitLead);
   const {
     register,
@@ -31,9 +33,18 @@ export function ContactForm() {
   const onSubmit = async (values: FormValues) => {
     setError(null);
     try {
-      await send({ data: values });
+      await send({
+        data: {
+          ...values,
+          website: "",
+          startedAt: startedAt.current,
+          sourcePage: window.location.pathname,
+        },
+      });
       setSent(true);
+      trackEvent("contact_form_submission", { page: window.location.pathname, service: values.service });
       reset({ name: "", email: "", phone: "", company: "", service: "", budget: "", message: "" });
+      startedAt.current = Date.now();
     } catch (err) {
       console.error("[contact-form] submission failed", err);
       setError(
@@ -50,9 +61,12 @@ export function ContactForm() {
         <p className="mx-auto mt-3 max-w-sm text-sm text-muted-foreground">
           Thank you! Your enquiry has been received. Our team will get back to you shortly.
         </p>
-        <button
+          <button
           type="button"
-          onClick={() => setSent(false)}
+            onClick={() => {
+              startedAt.current = Date.now();
+              setSent(false);
+            }}
           className="mt-7 text-[10px] font-semibold tracking-[0.22em] text-brand-glow uppercase"
         >
           Send another enquiry

@@ -1,7 +1,7 @@
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import type { LeadFormValues } from "./leads.schema";
+import type { LeadSubmissionValues } from "./leads.schema";
 
-export async function insertLead(input: LeadFormValues) {
+export async function insertLead(input: LeadSubmissionValues) {
   const { data, error } = await supabaseAdmin
     .from("leads")
     .insert({
