@@ -84,9 +84,13 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-14 flex w-full max-w-[1240px] flex-col gap-3 border-t border-white/10 pt-6 text-[10px] tracking-[0.24em] text-foreground/40 uppercase sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto mt-14 flex w-full max-w-[1240px] flex-col gap-4 border-t border-white/10 pt-6 text-[10px] tracking-[0.24em] text-foreground/50 uppercase sm:flex-row sm:items-center sm:justify-between">
         <span>&copy; 2026 Glow Grow India. All Rights Reserved.</span>
-        <span>{BRAND.city}</span>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <Link to="/privacy-policy" className="transition-colors hover:text-brand-glow">Privacy Policy</Link>
+          <Link to="/terms" className="transition-colors hover:text-brand-glow">Terms &amp; Conditions</Link>
+          <span>{BRAND.city}</span>
+        </div>
       </div>
     </footer>
   );

@@ -8,30 +8,35 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { ArrowLeft } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
+import { CookieConsent } from "@/components/site/cookie-consent";
+import logoAsset from "@/assets/glow-grow-logo-light.png.asset.json";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-ink px-5 py-24">
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-brand-glow/30" />
+      <div className="relative max-w-2xl text-center">
+        <img src={logoAsset.url} alt="Glow Grow India" width={800} height={415} className="mx-auto h-12 w-auto" />
+        <p className="mt-12 text-xs font-semibold tracking-[0.32em] text-brand-glow uppercase">Error 404</p>
+        <h1 className="mt-5 font-display text-5xl leading-[0.92] font-bold tracking-tight text-foreground uppercase sm:text-7xl">
+          This page lost its glow.
+        </h1>
+        <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
+          The page you're looking for doesn't exist or has moved. Let's get you back to the work that matters.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <Link
+          to="/"
+          className="mt-9 inline-flex items-center justify-center gap-2 rounded-full bg-brand-glow px-6 py-3 text-xs font-semibold tracking-[0.18em] text-brand-ink uppercase focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-glow"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" /> Back to home
+        </Link>
       </div>
     </div>
   );
@@ -91,6 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
@@ -135,6 +141,7 @@ function RootComponent() {
         </main>
         <Footer />
         <WhatsAppButton />
+        <CookieConsent />
       </div>
     </QueryClientProvider>
   );

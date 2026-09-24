@@ -32,7 +32,8 @@ export function CookieConsent() {
 
   return (
     <div
-      role="region"
+      role="dialog"
+      aria-live="polite"
       aria-label="Cookie notice"
       className="fixed inset-x-3 bottom-20 z-40 border border-white/15 bg-brand-surface/95 p-5 backdrop-blur-xl sm:inset-x-auto sm:bottom-6 sm:left-6 sm:max-w-sm"
     >

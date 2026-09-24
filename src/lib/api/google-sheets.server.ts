@@ -1,14 +1,14 @@
-import type { LeadFormValues } from "./leads.schema";
+import type { LeadSubmissionValues } from "./leads.schema";
 
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/google_sheets/v4";
 const SPREADSHEET_ID = "1RLPM32_-PYGcjqmoJRLv6nmuTrRf_rDHJP8fTnLB-Bo";
-const RANGE = "Leads!A:I";
+const RANGE = "Leads!A:J";
 
 /**
  * Appends a lead as a row in the Glow Grow India leads spreadsheet.
  * Never throws — sheet sync must not block saving the enquiry.
  */
-export async function appendLeadToSheet(input: LeadFormValues): Promise<void> {
+export async function appendLeadToSheet(input: LeadSubmissionValues): Promise<void> {
   const lovableApiKey = process.env["LOVABLE_API_KEY"];
   const sheetsApiKey = process.env["GOOGLE_SHEETS_API_KEY"];
 
@@ -27,6 +27,7 @@ export async function appendLeadToSheet(input: LeadFormValues): Promise<void> {
     input.budget,
     input.message,
     "New",
+    input.sourcePage,
   ];
 
   try {
