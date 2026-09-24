@@ -128,29 +128,30 @@ export const INDUSTRIES = [
 export const TESTIMONIALS = [
   {
     quote:
-      "They didn't hand us a content calendar. They handed us a growth plan — and then actually ran it.",
-    name: "Placeholder Name",
-    role: "Marketing Lead",
-    company: "D2C Brand",
+      "Glow Grow India has been great to work with. Their creative approach and understanding of the Gen-Z audience have really helped our events and social media grow.”",
+    name: "Ananta Hospitality",
+    role: "OWNER",
+    company: "ANANTA HOSPITALITY PVT LTD",
   },
   {
     quote:
-      "Our event sold out faster than any edition before. The community work made the difference.",
-    name: "Placeholder Name",
-    role: "Founder",
-    company: "Event Company",
+      "Really impressed with the increase in our reach and online visibility. The team brought fresh ideas and helped us connect with a much wider audience.",
+    name: "Pradeep Godara",
+    role: "MARKETING HEAD",
+    company: "SUNDARONE HOSTELS PVT LTD",
   },
   {
     quote:
-      "Creative that finally looks like us, paired with numbers we can report to investors.",
-    name: "Placeholder Name",
-    role: "Co-founder",
-    company: "Early-stage Startup",
+      "Great experience working together. Their creative ideas and marketing efforts helped us reach a wider audience, build better visibility, and attract more engagement.”",
+    name: "Gaurav Sharma",
+    role: "OWNER",
+    company: "ARROW SPORTS CAFE AND HOTELS",
   },
   {
-    quote: "Leads went from occasional to predictable within two months.",
-    name: "Placeholder Name",
-    role: "Owner",
-    company: "Hospitality Brand",
+    quote:
+      "“Loved the energy and creativity they brought to our travel campaigns. Their efforts helped us reach more people and generate strong interest in our trips.”",
+    name: "Akhil Watts ",
+    role: "FOUNDER",
+    company: "THE WANDERHAULICS",
   },
 ];
