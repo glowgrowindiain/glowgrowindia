@@ -129,7 +129,7 @@ export const TESTIMONIALS = [
   {
     quote:
       "Glow Grow India has been great to work with. Their creative approach and understanding of the Gen-Z audience have really helped our events and social media grow.”",
-    name: "Ananta Hospitality",
+    name: "Narendra Shekhawat",
     role: "OWNER",
     company: "ANANTA HOSPITALITY PVT LTD",
   },
