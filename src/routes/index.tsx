@@ -9,7 +9,6 @@ import {
   ServicesSection,
   StatsSection,
   WhySection,
-  WorkSection,
 } from "@/components/site/sections";
 import { Testimonials } from "@/components/site/testimonials";
 import { CtaSection } from "@/components/site/cta-section";
@@ -91,9 +90,6 @@ function Index() {
                 <ButtonLink to="/contact" magnetic>
                   Start a Project <ArrowRight className="h-3.5 w-3.5" />
                 </ButtonLink>
-                <ButtonLink to="/work" variant="ghost">
-                  Explore Our Work
-                </ButtonLink>
               </div>
             </Reveal>
           </div>
@@ -124,7 +120,6 @@ function Index() {
       <StatsSection />
       <ServicesSection compact />
       <WhySection />
-      <WorkSection compact />
       <IndustriesSection />
       <ProcessSection />
       <Testimonials />

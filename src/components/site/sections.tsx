@@ -6,10 +6,9 @@ import {
   SERVICES,
   STATS,
 } from "@/lib/site-content";
-import { CASE_STUDIES } from "@/lib/work-data";
 import { AnimatedNumber, Reveal } from "./motion-primitives";
 import { ButtonLink, Section, SectionHeading } from "./ui-bits";
-import { CaseStudyCard, ServiceCard } from "./cards";
+import { ServiceCard } from "./cards";
 
 export function StatsSection() {
   return (
@@ -90,30 +89,6 @@ export function WhySection() {
   );
 }
 
-export function WorkSection({ compact = false }: { compact?: boolean }) {
-  const list = compact ? CASE_STUDIES.slice(0, 2) : CASE_STUDIES;
-  return (
-    <Section id="work">
-      <SectionHeading
-        eyebrow="Case Studies"
-        title="Selected work"
-        sub="Ideas we've turned into attention, engagement and growth."
-      />
-      <div className="mt-14 grid gap-6 lg:grid-cols-2">
-        {list.map((item, i) => (
-          <CaseStudyCard key={item.slug} item={item} delay={(i % 2) * 0.08} />
-        ))}
-      </div>
-      {compact ? (
-        <div className="mt-12">
-          <ButtonLink to="/work" variant="ghost">
-            See All Work <ArrowRight className="h-3.5 w-3.5" />
-          </ButtonLink>
-        </div>
-      ) : null}
-    </Section>
-  );
-}
 
 export function IndustriesSection() {
   return (
