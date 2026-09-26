@@ -91,9 +91,6 @@ function Index() {
                 <ButtonLink to="/contact" magnetic>
                   Start a Project <ArrowRight className="h-3.5 w-3.5" />
                 </ButtonLink>
-                <ButtonLink to="/work" variant="ghost">
-                  Explore Our Work
-                </ButtonLink>
               </div>
             </Reveal>
           </div>
