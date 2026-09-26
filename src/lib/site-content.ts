@@ -68,13 +68,13 @@ export const SERVICES = [
   },
   {
     n: "07",
-    title: "Content Production",
-    desc: "Photography, videography, reels, short-form content and campaign creatives.",
+    title: "Photography & Videography",
+    desc: "Brand shoots, reels, product videos, event coverage and cinematic short-form content that stops the scroll.",
   },
   {
     n: "08",
-    title: "Event Marketing",
-    desc: "Digital promotion, community activation, influencer campaigns and audience acquisition for events.",
+    title: "Event Marketing & Sales",
+    desc: "Event promotion, on-ground activation, audience acquisition and sales-driven campaigns that fill venues.",
   },
 ];
 
