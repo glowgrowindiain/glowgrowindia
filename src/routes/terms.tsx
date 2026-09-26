@@ -16,6 +16,7 @@ export const Route = createFileRoute("/terms")({
       { property: "og:description", content: description },
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: url }],
   }),
