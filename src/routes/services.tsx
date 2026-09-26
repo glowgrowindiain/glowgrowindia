@@ -17,6 +17,7 @@ export const Route = createFileRoute("/services")({
       { property: "og:description", content: description },
       { property: "og:url", content: "https://glowgrowmarketing.lovable.app/services" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:image", content: "https://glowgrowmarketing.lovable.app/og-image.jpg" },
       { name: "twitter:image", content: "https://glowgrowmarketing.lovable.app/og-image.jpg" },
       { name: "twitter:title", content: title },
