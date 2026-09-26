@@ -1,5 +1,4 @@
 import { ArrowUpRight } from "lucide-react";
-import type { CaseStudy } from "@/lib/work-data";
 import { Reveal } from "./motion-primitives";
 
 export function ServiceCard({
