@@ -121,7 +121,6 @@ function Index() {
       <StatsSection />
       <ServicesSection compact />
       <WhySection />
-      <WorkSection compact />
       <IndustriesSection />
       <ProcessSection />
       <Testimonials />
