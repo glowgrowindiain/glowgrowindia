@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import {
   INDUSTRIES,
   PRINCIPLES,
@@ -6,10 +5,9 @@ import {
   SERVICES,
   STATS,
 } from "@/lib/site-content";
-import { CASE_STUDIES } from "@/lib/work-data";
 import { AnimatedNumber, Reveal } from "./motion-primitives";
 import { ButtonLink, Section, SectionHeading } from "./ui-bits";
-import { CaseStudyCard, ServiceCard } from "./cards";
+import { ServiceCard } from "./cards";
 
 export function StatsSection() {
   return (

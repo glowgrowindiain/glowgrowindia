@@ -9,7 +9,6 @@ import {
   ServicesSection,
   StatsSection,
   WhySection,
-  WorkSection,
 } from "@/components/site/sections";
 import { Testimonials } from "@/components/site/testimonials";
 import { CtaSection } from "@/components/site/cta-section";
