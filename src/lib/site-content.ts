@@ -85,8 +85,8 @@ export const SERVICE_OPTIONS = [
   "Branding",
   "Influencer Marketing",
   "SEO / AEO",
-  "Content Production",
-  "Event Marketing",
+  "Photography & Videography",
+  "Event Marketing & Sales",
   "Other",
 ];
 
